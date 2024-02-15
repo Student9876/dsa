@@ -60,7 +60,6 @@ int main(){
     root->right->left = new TreeNode(6);
     root->right->right = new TreeNode(7);
     
-    // Indorder Traversal 
     cout<<"Preorder Traversal :";
     preorderTraverse(root);
     nl;
