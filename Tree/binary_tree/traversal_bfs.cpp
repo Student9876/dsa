@@ -43,6 +43,35 @@ vector<vector<int>> levelOrderTraversal(TreeNode * root){
 // Time Complexity O(N)
 // Space Complexity O(N)
 
+// Zig zag level order traversal 
+
+vector<vector<int>> zigzagLevelOrderTraversal(TreeNode* root){
+    vector<vector<int>> ans;
+    if(root == NULL) return ans;
+    queue<TreeNode *> q;
+    q.push(root);
+    int st=0;
+    while(!q.empty()){
+        int size = q.size();
+        vector<int> level;
+
+        f(i,0,size){
+            TreeNode * node = q.front();
+            q.pop();
+            if(node->left !=NULL) q.push(node->left);
+            if(node->right !=NULL) q.push(node->right);
+            level.push_back(node->val);
+        }
+        if(st){
+            reverse(level.begin(), level.end());
+            st=0;
+        } else {
+            st=1;
+        }
+        ans.push_back(level);
+    }
+}
+
 
 int main(){
     TreeNode * root = new TreeNode(1);
@@ -58,6 +87,12 @@ int main(){
 
     vector<vector<int>> ans = levelOrderTraversal(root);
     cout<<"Level Order Traversal";nl;
+    for(auto it:ans){
+        for(auto item:it) cout<<item<<" ";
+    }
+    nl;
+    ans = zigzagLevelOrderTraversal(root);
+    cout<<"Zig Zag Level Order Traversal";nl;
     for(auto it:ans){
         for(auto item:it) cout<<item<<" ";
     }

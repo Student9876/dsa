@@ -22,6 +22,9 @@ class TreeNode{
 };
 
 
+// TC = O(n)
+// SC = O(n)
+
 bool isSameTree(TreeNode * root1, TreeNode * root2){
     if(root1 == NULL || root2 == NULL) return root1 == root2;
     return (root1->val == root2->val) && isSameTree(root1->left, root2->left) && isSameTree(root1->right, root2->right);
@@ -37,7 +40,7 @@ int main(){
 
     root1->right->left = new TreeNode(15);
     root1->right->right = new TreeNode(7);
-    
+
     TreeNode * root2 = new TreeNode(-10);
     root2->left= new TreeNode(9);
     root2->right= new TreeNode(20);
