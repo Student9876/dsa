@@ -38,8 +38,8 @@ int widthOFBinaryTree(TreeNode* root){
             q.pop();
             if(i==0) first = cur_id;
             if(i==size-1) last = cur_id;
-            if(node->left) q.push({root->left, cur_id*2+1});
-            if(node->right) q.push({root->right, cur_id*2+2});
+            if(node->left) q.push({node->left, cur_id*2+1});
+            if(node->right) q.push({node->right, cur_id*2+2});
         }
         ans = max(ans, last-first+1);
     }
@@ -52,7 +52,7 @@ int main(){
     TreeNode * root = new TreeNode(1);
     root->left = new TreeNode(2);
     root->right = new TreeNode(3);
-    root->left->left = new TreeNode(4);
+    // root->left->left = new TreeNode(4);
     root->left->right = new TreeNode(5);
 
     // root->left->right->left = new TreeNode(8);
