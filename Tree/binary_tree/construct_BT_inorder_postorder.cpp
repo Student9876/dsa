@@ -36,6 +36,7 @@ TreeNode * buildTree(vector<int> &postorder, int postStart, int postEnd, vector<
 
 
 TreeNode * buildTree(vector<int> &postorder, vector<int> &inorder){
+    if(postorder.size() != inorder.size()) return NULL;
     omp(int, int) inMap;
     f(i,0,inorder.size()) inMap[inorder[i]] = i;
     TreeNode * root = buildTree(postorder, 0, postorder.size()-1, inorder, 0, inorder.size()-1, inMap);
