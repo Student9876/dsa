@@ -36,6 +36,18 @@ void find_Kth_Smallest_Element_InorderTraversal(TN* root, int k, int &ct){
     find_Kth_Smallest_Element_InorderTraversal(root->right, k, ct);
 }
 
+// Using reverse inoorder traversal 
+void find_Kth_Largest_Element_InorderTraversal(TN* root, int k, int &ct){
+    if(root == NULL) return;
+    find_Kth_Largest_Element_InorderTraversal(root->right, k, ct);
+    ct++;
+    if(ct == k){
+        cout<<root->val;
+        return;
+    }
+    find_Kth_Largest_Element_InorderTraversal(root->left, k, ct);
+}
+
 
 // Using Morris Traversal 
 // TC -> O(N)
@@ -72,6 +84,8 @@ void find_Kth_Smallest_Element_MorrisTraversal(TN* root, int k, int &ct){
     }
 }
 
+
+
 int main(){
     // TN* root = new TN(5);
 
@@ -101,7 +115,10 @@ int main(){
     int ct=0;
     find_Kth_Smallest_Element_InorderTraversal(root,6,ct);
     nl;
+    ct=0;
     // find_Kth_Smallest_Element_MorrisTraversal(root,6,ct);
+    find_Kth_Largest_Element_InorderTraversal(root,3,ct);
+    nl;
 
     return 0;
 }
