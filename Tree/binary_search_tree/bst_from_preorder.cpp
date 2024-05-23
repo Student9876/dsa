@@ -22,11 +22,6 @@ class TreeNode{
 } typedef TN;
 
 
-TN* bstFromPreorder(vector<int>& A){
-    int i = 0;
-    return build(A,i,INT_MAX);
-}
-
 TN* build(vector<int>& A, int& i, int bound){
     if(i == A.size() or A[i] > bound) return NULL;
     TN* root = new TN(A[i++]);
@@ -35,8 +30,24 @@ TN* build(vector<int>& A, int& i, int bound){
     return root;
 }
 
+TN* bstFromPreorder(vector<int>& A){
+    int i = 0;
+    return build(A,i,INT_MAX);
+}
+
+
+void preorderTraversal(TN* root){
+    if(root == NULL) return;
+    cout<<root->val<<" ";
+    preorderTraversal(root->left);
+    preorderTraversal(root->right);
+}
 
 int main(){
-   
+    vector<int> preorder = {8,5,1,7,10,12};
+
+    TN* root = bstFromPreorder(preorder);
+    preorderTraversal(root);
+
     return 0;
 }
