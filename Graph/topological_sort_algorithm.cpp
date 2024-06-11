@@ -27,6 +27,8 @@ class TreeNode{
 /*
 This only works for DAG
 Directed Acyclic Graph.
+
+DFS algorithm
 */
 class Solution
 {
