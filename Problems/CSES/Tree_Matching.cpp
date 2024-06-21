@@ -27,7 +27,24 @@ class TreeNode{
 
 
 
+const int MAX = 2* 1e5+1;
+
+
+
+
 int main(){
-    
+
+    int n;
+    cin>>n;
+    unordered_map<int, int> mp;
+    for(int i=0;i<n;i++){
+        int x, y;cin>>x>>y;
+        if(mp.find(x) == mp.end() and mp.find(y) == mp.end()){
+            mp[x] = y;
+            mp[y] = x;
+        }
+    }
+    cout<<mp.size()/2;
+
     return 0;
 }
