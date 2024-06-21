@@ -23,8 +23,37 @@ class TreeNode{
 
 // https://cses.fi/problemset/task/1674/
 
+const int MAX = 200001;
+
+vector<int> children[MAX];
+int subtree[MAX];
+
+void dfs(int node){
+    subtree[node] = 1;
+    for(auto child:children[node]){
+        dfs(child);
+        subtree[node] += subtree[child];
+    }
+}
+
 
 int main(){
     
+    int n;
+    cin>>n;
+    f(i,2,n+1){
+        int x;
+        cin>>x;
+        children[x].push_back(i);
+    }
+
+
+
+    dfs(1);
+    for(int i=1;i<=n;i++){
+        cout<<subtree[i]-1<<" ";
+    }   
+    nl;
+
     return 0;
 }
