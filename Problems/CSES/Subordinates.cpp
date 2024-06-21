@@ -23,6 +23,17 @@ class TreeNode{
 
 // https://cses.fi/problemset/task/1674/
 
+
+/* 
+    Intuition 
+    - We can solve this problem using DFS
+    - We can calculate the number of subordinates of each employee
+    - A dfs algorithm which always initializes the number of subordinates of a node as 1
+    - then for each child of the node, we add the number of subordinates of the child to the number of subordinates of the node
+    - Finally, we print the number of subordinates of each employee
+    - As we are calculating the total number of clild nodes including the parent node itself, so the ans will be subtree[node]-1
+*/
+
 const int MAX = 200001;
 
 vector<int> children[MAX];
