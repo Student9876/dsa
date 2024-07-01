@@ -67,6 +67,8 @@ class Solution
     Dijkstra's Algorithm finding shortest paths from a given source using set
     using set, we can remove already update nodes from the set which have greater distance
     In this way we can save some time in iterations in some cases
+    
+    Time complexity O(E*logV) 
 */
 
 class Solution2
