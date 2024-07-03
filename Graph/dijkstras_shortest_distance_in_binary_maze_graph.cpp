@@ -25,6 +25,7 @@ class TreeNode{
 
 /*
     https://www.geeksforgeeks.org/problems/shortest-path-in-a-binary-maze-1655453161/1
+    https://leetcode.com/problems/shortest-path-in-binary-matrix/description/
     Shortest distance in Binary Maze
 
     Using Dijkstras Algorithm but with a Queue
@@ -65,6 +66,44 @@ class Solution {
         }
         return -1;
         
+    }
+};
+
+
+
+// LeetCode solution 
+class Solution2 {
+public:
+    int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
+        if(grid[0][0] == 1) return -1;
+        int n = grid.size();
+        int m = grid[0].size();
+        vector<vector<int>> dist(n, vector<int> (m, 1e9));
+        queue<pair<pair<int, int> , int>> q;
+        q.push({{0, 0}, 1});
+        dist[0][0] = 1;
+
+        int delRow[] = {0, 0, 1, -1, -1, -1, 1, 1};
+        int delCol[] = {1, -1, 0, 0, 1, -1, -1, 1};
+
+        while(!q.empty()){
+            int row = q.front().first.first;
+            int col = q.front().first.second;
+            int dis = q.front().second;
+            q.pop();
+            if(row == n-1 and col == m-1) return dis;
+            for(int i = 0; i < 8; i++){
+                int nrow = row + delRow[i];
+                int ncol = col + delCol[i];
+
+                if(nrow >= 0 and nrow < n and ncol >= 0 and ncol < m
+                    and grid[nrow][ncol] == 0 and (dis + 1) < dist[nrow][ncol]){
+                        dist[nrow][ncol] = dis + 1;
+                        q.push({{nrow, ncol}, dis + 1});
+                    }
+            }
+        }
+        return -1;
     }
 };
 
