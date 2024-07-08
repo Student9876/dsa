@@ -24,7 +24,9 @@ class TreeNode{
 
 
 /*
-    Time Complexity: O(4 (alpha)) == O(1) almost
+    Time Complexity: 
+        for union by size or rank O(4 (alpha)) == O(1) almost
+        same for the whole code 
 */
 
 class DisjointSet {
