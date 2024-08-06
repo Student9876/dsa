@@ -39,7 +39,7 @@ class Solution {
                 return;
             }
             vis[row][col] = 1;
-            // L R U D 
+            // L R U D
             int delRow[] = {0, 0, 1, -1};
             int delCol[] = {1, -1, 0, 0};
             char dir[] = {'R', 'L', 'D', 'U'};
