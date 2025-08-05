@@ -22,6 +22,31 @@ class TreeNode{
 };
 
 
+/*
+    https://leetcode.com/problems/binary-tree-maximum-path-sum/description/
+
+*/
+
+// Leetcode solution 
+class Solution {
+private:
+    int helper(TreeNode* root, int &mx){
+        if(root == NULL) return 0;
+        int leftSum = max(0, helper(root->left,mx));
+        int rightSum = max(0, helper(root->right,mx));
+
+        mx = max(mx, leftSum + rightSum + root->val);
+        return root->val + max(leftSum, rightSum);
+    }
+public:
+    int maxPathSum(TreeNode* root) {    
+        int mx = INT_MIN;
+        helper(root, mx);
+        return mx;
+    }
+};
+
+
 
 int maxPathSum(TreeNode *root, int &max_sum){
     if(root == NULL) return 0;
