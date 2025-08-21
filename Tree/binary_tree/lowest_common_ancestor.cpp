@@ -23,6 +23,13 @@ class TreeNode{
 
 
 
+/*
+    https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
+    TC: O(N)
+    SC: O(H) stack space of recurstion 
+    where H is the height of the tree
+*/
+
 
 TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q){
     if(root == NULL or root == p or root==q) return root;

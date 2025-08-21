@@ -22,8 +22,13 @@ class TreeNode{
 };
 
 
-// TC = O(n)
-// SC = O(n)
+
+/*
+    https://leetcode.com/problems/same-tree/description/
+    
+    TC = O(n)
+    SC = O(n)
+*/
 
 bool isSameTree(TreeNode * root1, TreeNode * root2){
     if(root1 == NULL || root2 == NULL) return root1 == root2;
