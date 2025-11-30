@@ -22,6 +22,12 @@ class TreeNode{
 } typedef TN;
 
 
+/*
+    https://leetcode.com/problems/number-of-provinces/description/
+    TC - O(V + E)
+    SC - O(V)
+*/
+
 // Extension of DFS 
 void dfs(int node, vector<int> adj[], int vis[]){
     vis[node] = 1;

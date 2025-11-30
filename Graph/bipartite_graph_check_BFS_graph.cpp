@@ -22,7 +22,13 @@ class TreeNode{
 } typedef TN;
 
 
-// https://www.geeksforgeeks.org/problems/bipartite-graph/1
+/*
+	// https://www.geeksforgeeks.org/problems/bipartite-graph/1
+	TC - O(V + E)
+	SC - O(V)
+	Where V is the number of vertices and E is the number of edges in the graph.
+	We can use BFS to color the graph in two colors and check if any adjacent nodes have the same color.
+*/
 
 class Solution {
     private:
